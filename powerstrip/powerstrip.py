@@ -21,10 +21,10 @@ class NoPostHooks(Exception):
     (streaming/hijacked or chunked).
     """
 
+
 class DockerProxyClient(proxy.ProxyClient):
     """
-    An HTTP proxy which knows how to break HTTP just right so that Docker
-    stream (attach/events) API calls work.
+    An HTTP proxy which is able to handle Docker stream API calls.
     """
 
     http = True
