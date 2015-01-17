@@ -25,6 +25,8 @@ class NoPostHooks(Exception):
 class DockerProxyClient(proxy.ProxyClient):
     """
     An HTTP proxy which is able to handle Docker stream API calls.
+    
+    :attr http: ???
     """
 
     http = True
