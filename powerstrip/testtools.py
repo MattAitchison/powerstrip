@@ -119,11 +119,11 @@ class AdderResource(resource.Resource):
                 OriginalMethod: "POST",
                 OriginalRequest: "/v1.16/containers/create",
                 OriginalBody: { ... },
-                DockerResponseContentType: "text/plain",
-                DockerResponseBody: { ... } (if application/json)
+                DockerContentType: "text/plain",
+                DockerBody: { ... } (if application/json)
                                     or "not found" (if text/plain)
                                     or null (if it was a GET request),
-                DockerResponseCode: 404,
+                DockerCode: 404,
             }
 
         Responds with:
@@ -140,12 +140,12 @@ class AdderResource(resource.Resource):
         assert "OriginalMethod" in jsonParsed
         assert "OriginalRequest" in jsonParsed
         assert "OriginalBody" in jsonParsed
-        assert "DockerResponseContentType" in jsonParsed
-        jsonParsed["DockerResponseBody"]["Number"] += self.incrementBy
-        assert "DockerResponseCode" in jsonParsed
+        assert "DockerContentType" in jsonParsed
+        jsonParsed["DockerBody"]["Number"] += self.incrementBy
+        assert "DockerCode" in jsonParsed
         request.setHeader("Content-Type", "application/json")
         return json.dumps(dict(ContentType="application/json",
-                               Body=jsonParsed["DockerResponseBody"],
+                               Body=jsonParsed["DockerBody"],
                                Code=200))
 
     def render_POST(self, request):

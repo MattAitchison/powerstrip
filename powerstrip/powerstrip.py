@@ -222,9 +222,9 @@ class DockerProxy(proxy.ReverseProxyResource):
                         "OriginalMethod": request.method,
                         "OriginalRequest": request.uri,
                         "OriginalBody": originalRequestBody,
-                        "DockerResponseContentType": result["ContentType"],
-                        "DockerResponseBody": result["Body"],
-                        "DockerResponseCode": result["Code"],
+                        "DockerContentType": result["ContentType"],
+                        "DockerBody": result["Body"],
+                        "DockerCode": result["Code"],
                     }), headers={'Content-Type': ['application/json']})
         for postHook in postHooks:
             hookURL = self.config.plugin_uri(postHook)

@@ -101,9 +101,9 @@ class TestAdderPlugin(TestCase):
                           "OriginalMethod": "POST",
                           "OriginalRequest": "/fictional",
                           "OriginalBody": {},
-                          "DockerResponseContentType": "application/json",
-                          "DockerResponseBody": {"Number": 7},
-                          "DockerResponseCode": 200,
+                          "DockerContentType": "application/json",
+                          "DockerBody": {"Number": 7},
+                          "DockerCode": 200,
                           }),
                       headers={'Content-Type': ['application/json']})
         def verifyResponseCode(response):

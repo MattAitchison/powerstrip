@@ -157,11 +157,11 @@ Plugins thus get a chance to modify or delay the response from Docker to the cli
         OriginalMethod: "POST",
         OriginalRequest: "/v1.16/containers/create",
         OriginalBody: { ... },
-        DockerResponseContentType: "text/plain",
-        DockerResponseBody: { ... } (if application/json)
+        DockerContentType: "text/plain",
+        DockerBody: { ... } (if application/json)
                             or "not found" (if text/plain)
                             or null (if it was a GET request),
-        DockerResponseCode: 404
+        DockerCode: 404
     }
 
 The plugin responds with:
@@ -295,9 +295,9 @@ Pseudocode
                 OriginalMethod=method,
                 OriginalRequest=request,
                 OriginalBody=body,
-                DockerResponseContentType=...,
-                DockerResponseBody=...,
-                DockerResponseCode=...))
+                DockerContentType=...,
+                DockerBody=...,
+                DockerCode=...))
         d.addErrback(sendErrorToClient)
         return d
 
