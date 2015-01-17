@@ -219,9 +219,9 @@ class DockerProxy(proxy.ReverseProxyResource):
             return self.client.post(hookURL, json.dumps({
                         # TODO Write tests for the information provided to the plugin.
                         "Type": "post-hook",
-                        "OriginalClientMethod": request.method,
-                        "OriginalClientRequest": request.uri,
-                        "OriginalClientBody": originalRequestBody,
+                        "OriginalMethod": request.method,
+                        "OriginalRequest": request.uri,
+                        "OriginalBody": originalRequestBody,
                         "DockerResponseContentType": result["ContentType"],
                         "DockerResponseBody": result["Body"],
                         "DockerResponseCode": result["Code"],

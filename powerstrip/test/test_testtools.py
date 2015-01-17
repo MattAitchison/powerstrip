@@ -98,9 +98,9 @@ class TestAdderPlugin(TestCase):
         d = self.client.post('http://127.0.0.1:%d/plugin' % (self.adderPort,),
                       json.dumps({
                           "Type": "post-hook",
-                          "OriginalClientMethod": "POST",
-                          "OriginalClientRequest": "/fictional",
-                          "OriginalClientBody": {},
+                          "OriginalMethod": "POST",
+                          "OriginalRequest": "/fictional",
+                          "OriginalBody": {},
                           "DockerResponseContentType": "application/json",
                           "DockerResponseBody": {"Number": 7},
                           "DockerResponseCode": 200,

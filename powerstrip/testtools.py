@@ -116,9 +116,9 @@ class AdderResource(resource.Resource):
 
             {
                 Type: "post-hook",
-                OriginalClientMethod: "POST",
-                OriginalClientRequest: "/v1.16/containers/create",
-                OriginalClientBody: { ... },
+                OriginalMethod: "POST",
+                OriginalRequest: "/v1.16/containers/create",
+                OriginalBody: { ... },
                 DockerResponseContentType: "text/plain",
                 DockerResponseBody: { ... } (if application/json)
                                     or "not found" (if text/plain)
@@ -137,9 +137,9 @@ class AdderResource(resource.Resource):
         print "*" * 80
         print "POST HOOK"
         print "*" * 80
-        assert "OriginalClientMethod" in jsonParsed
-        assert "OriginalClientRequest" in jsonParsed
-        assert "OriginalClientBody" in jsonParsed
+        assert "OriginalMethod" in jsonParsed
+        assert "OriginalRequest" in jsonParsed
+        assert "OriginalBody" in jsonParsed
         assert "DockerResponseContentType" in jsonParsed
         jsonParsed["DockerResponseBody"]["Number"] += self.incrementBy
         assert "DockerResponseCode" in jsonParsed

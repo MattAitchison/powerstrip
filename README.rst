@@ -154,9 +154,9 @@ Plugins thus get a chance to modify or delay the response from Docker to the cli
 
     {
         Type: "post-hook",
-        OriginalClientMethod: "POST",
-        OriginalClientRequest: "/v1.16/containers/create",
-        OriginalClientBody: { ... },
+        OriginalMethod: "POST",
+        OriginalRequest: "/v1.16/containers/create",
+        OriginalBody: { ... },
         DockerResponseContentType: "text/plain",
         DockerResponseBody: { ... } (if application/json)
                             or "not found" (if text/plain)
@@ -292,9 +292,9 @@ Pseudocode
             # TODO probably actually implement this as a PostHookResponse object.
             d.addCallback(postToPlugin, plugin.uri, dict(
                 Type="post-hook",
-                OriginalClientMethod=method,
-                OriginalClientRequest=request,
-                OriginalClientBody=body,
+                OriginalMethod=method,
+                OriginalRequest=request,
+                OriginalBody=body,
                 DockerResponseContentType=...,
                 DockerResponseBody=...,
                 DockerResponseCode=...))
